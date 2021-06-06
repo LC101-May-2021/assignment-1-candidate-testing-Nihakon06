@@ -22,7 +22,7 @@ let candidateAnswers = [];
 
 function askForName() {
 // TODO 1.1b: Ask for candidate's name //
-candidateName = input.question("Enter Your Name: ");
+candidateName = input.question("Candidate Name: ");
 return candidateName;
 }
 
@@ -31,8 +31,9 @@ return candidateName;
 // Define questions and correctAnswers variables as arrays. Use the table below to fill these arrays.
 function askQuestions() {
   for (let i = 0; i < questions.length; i++) {
-    candidateAnswer = input.question(questions[i]);
-    candidateAnswers.push(String(candidateAnswer));
+    candidateAnswer = input.question(`${i+1}) ${questions[i]} \nYour Answer: `);
+    candidateAnswers.push(candidateAnswer);
+     console.log(`Correct Answer: ${correctAnswers[i]}\n`);
   }
 }
 
@@ -43,12 +44,12 @@ function askQuestions() {
 // } else {
 //   console.log("Your Answer is Wrong!")
 // }
-function gradeQuiz(candidateAnswers) {
+function gradeQuiz() {
   let noOfCorrectAns = 0;
   let noOfQuizQues = questions.length;
   for (let i = 0; i < candidateAnswers.length; i++) {
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
-    noOfCorrectAns =+ 1;
+    noOfCorrectAns += 1;
     }
   }
   let grade = ((noOfCorrectAns / noOfQuizQues) * 100);
@@ -58,6 +59,7 @@ function gradeQuiz(candidateAnswers) {
   } else {
     status = "FAILED";
     }
+  console.log(`>>> Overall Grade: ${grade} (${noOfCorrectAns} of ${noOfQuizQues} responses correct) <<< \n>>> Status: ${status} <<<`);
   return grade;
 }
 
@@ -68,10 +70,7 @@ function runProgram() {
   // Greet the candidate
   // Replace the basic feedback from TODO 1.2c with a template literal that displays each of the candidate's responses in addition to the corresponding correct answers.
   askQuestions();
-  gradeQuiz(this.candidateAnswers);
-  console.log(`Candidate Name: ${candidateName} \n ${i}) ${questions[i]} \nYour Answer: ${candidateAnswers[i]} \n Correct Answer: ${correctAnswers[i]}`);
-  console.log(`>>> Overall Grade: ${grade} (${noOfCorrectAns} of ${noOfQuizQues} responses correct) <<<
-  >>> Status: ${status} <<<`);
+  gradeQuiz();
   
 }
 
@@ -91,3 +90,30 @@ module.exports = {
   gradeQuiz: gradeQuiz,
   runProgram: runProgram
 };
+
+
+/*
+Candidate Name: Can Twin
+1) Who was the first American woman in space?
+Your Answer: sally ride
+Correct Answer: Sally Ride
+
+2) True or false: 5000 meters = 5 kilometers.
+Your Answer: false
+Correct Answer: true
+
+3) (5 + 3)/2 * 10 = ?
+Your Answer: 45
+Correct Answer: 40
+
+4) Given the array [8, "Orbit", "Trajectory", 45], what entry is at index 2?
+Your Answer: trajectory
+Correct Answer: Trajectory
+
+5) What is the minimum crew size for the ISS?
+Your Answer: 10
+Correct Answer: 3
+
+>>> Overall Grade: 40% (2 of 5 responses correct) <<<
+>>> Status: FAILED <<<
+*/
