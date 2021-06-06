@@ -66,11 +66,12 @@ function gradeQuiz(candidateAnswers) {
 
 
 function runProgram() {
+ 
   askForName();
   // TODO 1.1c: Ask for candidate's name //
   // Greet the candidate
   // Replace the basic feedback from TODO 1.2c with a template literal that displays each of the candidate's responses in addition to the corresponding correct answers.
-  candidateAnswers = askQuestions();
+  this.candidateAnswers = askQuestions();
   gradeQuiz(this.candidateAnswers);
   
 }
