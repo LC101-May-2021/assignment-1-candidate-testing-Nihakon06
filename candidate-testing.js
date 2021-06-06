@@ -60,7 +60,7 @@ function gradeQuiz(candidateAnswers) {
   } else {
     status = "FAILED";
     }
-  console.log(`>>> Overall Grade: ${grade} (${noOfCorrectAns} of ${noOfQuizQues} responses correct) <<< \n>>> Status: ${status} <<<`);
+  console.log(`>>> Overall Grade: ${grade}% (${noOfCorrectAns} of ${noOfQuizQues} responses correct) <<< \n>>> Status: ${status} <<<`);
   return grade;
 }
 
