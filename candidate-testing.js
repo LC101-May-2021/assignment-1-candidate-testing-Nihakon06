@@ -35,6 +35,7 @@ function askQuestions() {
     candidateAnswers.push(candidateAnswer);
      console.log(`Correct Answer: ${correctAnswers[i]}\n`);
   }
+  return candidateAnswers;
 }
 
 
@@ -44,7 +45,7 @@ function askQuestions() {
 // } else {
 //   console.log("Your Answer is Wrong!")
 // }
-function gradeQuiz() {
+function gradeQuiz(candidateAnswers) {
   let noOfCorrectAns = 0;
   let noOfQuizQues = questions.length;
   for (let i = 0; i < candidateAnswers.length; i++) {
@@ -69,8 +70,8 @@ function runProgram() {
   // TODO 1.1c: Ask for candidate's name //
   // Greet the candidate
   // Replace the basic feedback from TODO 1.2c with a template literal that displays each of the candidate's responses in addition to the corresponding correct answers.
-  askQuestions();
-  gradeQuiz();
+  candidateAnswers = askQuestions();
+  gradeQuiz(this.candidateAnswers);
   
 }
 
