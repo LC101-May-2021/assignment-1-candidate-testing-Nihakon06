@@ -23,7 +23,7 @@ let candidateAnswers = [];
 function askForName() {
 // TODO 1.1b: Ask for candidate's name //
 candidateName = input.question("Candidate Name: ");
-
+return candidateName;
 }
 
 // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
