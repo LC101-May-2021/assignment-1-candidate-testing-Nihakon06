@@ -5,9 +5,8 @@ const input = require('readline-sync');
 
 // TODO 1.1a: Define candidateName // 
 // Initialized a variable called candidateName.
-let candidateName;
+let candidateName = "";
 // candidateName is assigned with an empty string.
-candidateName = "";
 
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer 
 let question = "Who was the first American woman in space? ";
@@ -23,7 +22,7 @@ let candidateAnswers = [];
 function askForName() {
 // TODO 1.1b: Ask for candidate's name //
 candidateName = input.question("Candidate Name: ");
-return candidateName;
+
 }
 
 // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
@@ -35,7 +34,7 @@ function askQuestions() {
     candidateAnswers.push(candidateAnswer);
      console.log(`Correct Answer: ${correctAnswers[i]}\n`);
   }
-  return candidateAnswers;
+  
 }
 
 
@@ -48,7 +47,7 @@ function askQuestions() {
 function gradeQuiz(candidateAnswers) {
   let noOfCorrectAns = 0;
   let noOfQuizQues = questions.length;
-  for (let i = 0; i < candidateAnswers.length; i++) {
+    for (let i = 0; i < candidateAnswers.length; i++) {
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
     noOfCorrectAns += 1;
     }
@@ -71,12 +70,12 @@ function runProgram() {
   // TODO 1.1c: Ask for candidate's name //
   // Greet the candidate
   // Replace the basic feedback from TODO 1.2c with a template literal that displays each of the candidate's responses in addition to the corresponding correct answers.
-  this.candidateAnswers = askQuestions();
+  askQuestions();
   gradeQuiz(this.candidateAnswers);
   
 }
 
-runProgram();
+
  
 
 // Don't write any code below this line //
